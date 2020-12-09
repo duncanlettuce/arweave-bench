@@ -11,14 +11,18 @@ const fromArweave = ids => Promise.all(
     )
   )
 
-const instance = axios.create({ baseURL: 'http://forgotten.works/data/' })
-const fromVPS = paths => Promise.all(
+let instance = axios.create({ baseURL: 'http://forgotten.works/data/' })
+const fromDO = paths => Promise.all(
+  paths.map(path => instance.get(path))
+)
+instance = axios.create({ baseURL: 'http://handlebauer.asia.feralhosting.com/data/' })
+const fromFeral = paths => Promise.all(
   paths.map(path => instance.get(path))
 )
 
 const main = async () => {
   const action = 'Fetch'
-  const from = { arweave: 'Arweave', vps: 'Digital Ocean' }
+  const from = { arweave: 'Arweave', do: 'Digital Ocean', feral: 'Feral Hosting' }
   
   // ~5.96 MB when Base64Url encoded
   let description = '250k movie titles'
@@ -28,9 +32,13 @@ const main = async () => {
   console.timeEnd(`${action}: ${description} - ${from.arweave}`)
 
   let paths = ['250k-movie-titles']
-  console.time(`${action}: ${description} - ${from.vps}`)
-  data = await fromVPS(paths)
-  console.timeEnd(`${action}: ${description} - ${from.vps}`)
+  console.time(`${action}: ${description} - ${from.do}`)
+  data = await fromDO(paths)
+  console.timeEnd(`${action}: ${description} - ${from.do}`)
+
+  console.time(`${action}: ${description} - ${from.feral}`)
+  data = await fromFeral(paths)
+  console.timeEnd(`${action}: ${description} - ${from.feral}`)
 
   console.log()
 
@@ -53,9 +61,13 @@ const main = async () => {
     '50k-movie-titles-4',
     '50k-movie-titles-5',
   ]
-  console.time(`${action}: ${description} - ${from.vps}`)
-  data = await fromVPS(paths)
-  console.timeEnd(`${action}: ${description} - ${from.vps}`)
+  console.time(`${action}: ${description} - ${from.do}`)
+  data = await fromDO(paths)
+  console.timeEnd(`${action}: ${description} - ${from.do}`)
+
+  console.time(`${action}: ${description} - ${from.feral}`)
+  data = await fromFeral(paths)
+  console.timeEnd(`${action}: ${description} - ${from.feral}`)
 }
 
 ;(main)()
