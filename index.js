@@ -5,8 +5,6 @@ const arweave = require('arweave').init({
 
 const axios = require('axios')
 
-const from = { arweave: 'Arweave', vps: 'Digital Ocean' }
-
 const fromArweave = ids => Promise.all(
     ids.map(id =>
       arweave.transactions.getData(ids, { decode: true, string: true }),
@@ -20,6 +18,7 @@ const fromVPS = paths => Promise.all(
 
 const main = async () => {
   const action = 'Fetch'
+  const from = { arweave: 'Arweave', vps: 'Digital Ocean' }
   
   // ~5.96 MB when Base64Url encoded
   let description = '250k movie titles'
