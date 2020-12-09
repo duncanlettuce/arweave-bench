@@ -3,11 +3,11 @@
 ## Get started
 
 ``` js
-cd perferred/path
-git clone git@github.com:duncanlettuce/arweave-bench.git
-cd arweave-bench
-npm i
-node .
+> cd perferred/path
+> git clone git@github.com:duncanlettuce/arweave-bench.git
+> cd arweave-bench
+> npm i
+> node .
 ```
 
 This will output response times, eg.
