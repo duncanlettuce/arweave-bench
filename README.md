@@ -2,7 +2,7 @@
 
 ## Get started
 
-``` js
+```
 > cd perferred/path
 > git clone git@github.com:duncanlettuce/arweave-bench.git
 > cd arweave-bench
