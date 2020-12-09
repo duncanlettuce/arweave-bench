@@ -1,0 +1,18 @@
+{
+  "name": "arweave-bench",
+  "version": "0.1.0",
+  "description": "Evaluating ArWeave network response times",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "arweave"
+  ],
+  "author": "Donald Geddes",
+  "license": "MIT",
+  "dependencies": {
+    "arweave": "^1.10.0",
+    "axios": "^0.21.0"
+  }
+}
