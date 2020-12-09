@@ -35,7 +35,7 @@ const main = async () => {
 
   console.log()
 
-  description = '5x 50k movie titles as JSON'
+  description = '5x 50k movie titles'
   transactionIds = [
     'jhEh4gSjppCxXTKPar6dUinyXuT12jsmq_rPbVTmI5k',
     'arWGXQ-MhCSUykTa8QbdxokOhl3BP7dpGENVEdJp_dI',
