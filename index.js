@@ -5,7 +5,7 @@ const arweave = require('arweave').init({
 
 const axios = require('axios')
 
-const from = { arweave: 'ArWeave', vps: 'Digital Ocean' }
+const from = { arweave: 'Arweave', vps: 'Digital Ocean' }
 
 const fromArweave = ids => Promise.all(
     ids.map(id =>
